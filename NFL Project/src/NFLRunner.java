@@ -2,9 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class NFLRunner {
-	
+	static int team;
 	
 	public static void main(String[] args) {
+		
 		Teams.fillTeams();
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("This is a program that will ask for the user to plug in new stats for an NFL team, and it will add them to the current stats that the team has. What NFL team would you like to research?");
@@ -17,113 +18,119 @@ public class NFLRunner {
 			System.out.println("Total points allowed: " + Teams.NFLTeams.get(i).getPointsAllowed());
 			System.out.println(" ");
 		}	
+		System.out.println("Enter a number 1-32 that matches up to the team you would like to change their stats.");
 		int team = userInput.nextInt();
-		System.out.println("Enter 1 if your team wins and eter 2 if they lose this week.");
+		System.out.println("Enter 1 if your team wins and enter 2 if they lose this week.");
 		int record = userInput.nextInt();
+		System.out.println("How many points does your team score this week?");
+		int pointsScored = userInput.nextInt();
+		System.out.println("How many points are scored against you team this week?");
+		int pointsAgainst = userInput.nextInt();
 		if(record == 1) {
-			Teams.NFLTeams.get(team - 1).setWins(Teams.NFLTeams.get(0).getWins()+ 1);
+			Teams.NFLTeams.get(team - 1).setWins(Teams.NFLTeams.get(team - 1).getWins()+ 1);
 		}
 		else {
-			Teams.NFLTeams.get(team - 1).setLosses(Teams.NFLTeams.get(0).getLosses()+ 1);
+			Teams.NFLTeams.get(team - 1).setLosses(Teams.NFLTeams.get(team - 1).getLosses()+ 1);
 		}
+		Teams.NFLTeams.get(team - 1).setPointsScored(Teams.NFLTeams.get(team - 1).getPointsScored()+ pointsScored);
+		Teams.NFLTeams.get(team - 1).setPointsAllowed(Teams.NFLTeams.get(team - 1).getPointsAllowed()+ pointsAgainst);
 		switch(team){
 		case 1:
-			System.out.println(Teams.NFLTeams.get(0).getTeamName());
-			System.out.println(Teams.NFLTeams.get(0).getWins());
-			System.out.println(Teams.NFLTeams.get(0).getLosses());
+			Teams.printTeams();
 			break;
 		case 2:
-			System.out.println(Teams.NFLTeams.get(1).getTeamName());
+			
+			Teams.printTeams();
 			break;
 		case 3:
-			System.out.println(Teams.NFLTeams.get(2).getTeamName());
+			Teams.printTeams();
 			break;
 		case 4:
-			System.out.println(Teams.NFLTeams.get(3).getTeamName());
+			Teams.printTeams();
 			break;
 		case 5:
-			System.out.println(Teams.NFLTeams.get(4).getTeamName());
+			Teams.printTeams();
 			break;
 		case 6:
-			System.out.println(Teams.NFLTeams.get(5).getTeamName());
+			Teams.printTeams();
 			break;
 		case 7:
-			System.out.println(Teams.NFLTeams.get(6).getTeamName());
+			Teams.printTeams();
 			break;
 		case 8:
-			System.out.println(Teams.NFLTeams.get(7).getTeamName());
+			Teams.printTeams();
 			break;
 		case 9:
-			System.out.println(Teams.NFLTeams.get(8).getTeamName());
+			Teams.printTeams();
 			break;
 		case 10:
-			System.out.println(Teams.NFLTeams.get(9).getTeamName());
+			Teams.printTeams();
 			break;
 		case 11:
-			System.out.println(Teams.NFLTeams.get(10).getTeamName());
+			Teams.printTeams();
 			break;
 		case 12:
-			System.out.println(Teams.NFLTeams.get(11).getTeamName());
+			Teams.printTeams();
 			break;
 		case 13:
-			System.out.println(Teams.NFLTeams.get(12).getTeamName());
+			Teams.printTeams();
 			break;
 		case 14:
-			System.out.println(Teams.NFLTeams.get(13).getTeamName());
+			Teams.printTeams();
 			break;
 		case 15:
-			System.out.println(Teams.NFLTeams.get(14).getTeamName());
+			Teams.printTeams();
 			break;
 		case 16:
-			System.out.println(Teams.NFLTeams.get(15).getTeamName());
+			Teams.printTeams();
 			break;
 		case 17:
-			System.out.println(Teams.NFLTeams.get(16).getTeamName());
+			Teams.printTeams();
 			break;
 		case 18:
-			System.out.println(Teams.NFLTeams.get(17).getTeamName());
+			Teams.printTeams();
 			break;
 		case 19:
-			System.out.println(Teams.NFLTeams.get(18).getTeamName());
+			Teams.printTeams();
 			break;
 		case 20:
-			System.out.println(Teams.NFLTeams.get(19).getTeamName());
+			Teams.printTeams();
 			break;
 		case 21:
-			System.out.println(Teams.NFLTeams.get(20).getTeamName());
+			Teams.printTeams();
 			break;
 		case 22:
-			System.out.println(Teams.NFLTeams.get(21).getTeamName());
+			Teams.printTeams();
 			break;
 		case 23:
-			System.out.println(Teams.NFLTeams.get(22).getTeamName());
+			Teams.printTeams();
 			break;
 		case 24:
-			System.out.println(Teams.NFLTeams.get(23).getTeamName());
+			Teams.printTeams();
 			break;
 		case 25:
-			System.out.println(Teams.NFLTeams.get(24).getTeamName());
+			Teams.printTeams();
 			break;
 		case 26:
-			System.out.println(Teams.NFLTeams.get(25).getTeamName());
+			Teams.printTeams();
 			break;
 		case 27:
-			System.out.println(Teams.NFLTeams.get(26).getTeamName());
+			Teams.printTeams();
 			break;
 		case 28:
-			System.out.println(Teams.NFLTeams.get(27).getTeamName());
+			Teams.printTeams();
 			break;
 		case 29:
-			System.out.println(Teams.NFLTeams.get(28).getTeamName());
+			Teams.printTeams();
 			break;
 		case 30:
-			System.out.println(Teams.NFLTeams.get(29).getTeamName());
+			Teams.printTeams();
 			break;
 		case 31:
-			System.out.println(Teams.NFLTeams.get(30).getTeamName());
+			Teams.printTeams();
 			break;
 		case 32:
-			System.out.println(Teams.NFLTeams.get(31).getTeamName());
+			Teams.printTeams();
 			break;
 			
 		}

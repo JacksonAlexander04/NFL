@@ -37,4 +37,12 @@ public class Teams {
 	NFLTeams.add(new Stats("Washington Football Team", 2, 2, 101, 122));
 	
 	}
+	public static void printTeams() {
+		System.out.println(NFLRunner.team);
+		System.out.println(Teams.NFLTeams.get(NFLRunner.team ).getTeamName() + ":");
+		System.out.println("Your team has a record of " + NFLTeams.get(NFLRunner.team).getWins() + "-" + NFLTeams.get(NFLRunner.team).getLosses());
+		System.out.println("Your team has scored a total of " + NFLTeams.get(NFLRunner.team).getPointsScored() + " points this season so far.");
+		System.out.println("Your team has allowed a total of " + NFLTeams.get(NFLRunner.team).getPointsAllowed() + " to be scored on them.");
+	
+	}
 }
