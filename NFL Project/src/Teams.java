@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Teams {
 	static ArrayList<Stats> NFLTeams = new ArrayList<Stats>();
 	
@@ -16,11 +18,11 @@ public class Teams {
 	NFLTeams.add(new Stats("Detroit Lions", 0, 4, 81, 119));
 	NFLTeams.add(new Stats("Green Bay Packers", 3, 1, 95, 100));
 	NFLTeams.add(new Stats("Houston Texans", 1, 3, 67, 116));
-	NFLTeams.add(new Stats("Indianapolis Colts", 1, 2, 83, 87));
+	NFLTeams.add(new Stats("Indianapolis Colts", 1, 3, 83, 87));
 	NFLTeams.add(new Stats("Jacksonville Jaguars", 0, 4, 74, 115));
 	NFLTeams.add(new Stats("Kansas City Chiefs", 2, 2, 134, 125));
-	NFLTeams.add(new Stats("Las Vegas Raiders", 3, 0, 90, 72));
-	NFLTeams.add(new Stats("Los Angeles Chargers", 1, 2, 67, 60));
+	NFLTeams.add(new Stats("Las Vegas Raiders", 3, 1, 90, 72));
+	NFLTeams.add(new Stats("Los Angeles Chargers", 3, 1, 67, 60));
 	NFLTeams.add(new Stats("Los Angeles Rams", 3, 1, 115, 99));
 	NFLTeams.add(new Stats("Miami Dolphins", 1, 3, 62, 109));
 	NFLTeams.add(new Stats("Minnesota Vikings", 1, 3, 94, 92));
@@ -38,11 +40,25 @@ public class Teams {
 	
 	}
 	public static void printTeams() {
-		System.out.println(NFLRunner.team);
-		System.out.println(Teams.NFLTeams.get(NFLRunner.team ).getTeamName() + ":");
-		System.out.println("Your team has a record of " + NFLTeams.get(NFLRunner.team).getWins() + "-" + NFLTeams.get(NFLRunner.team).getLosses());
-		System.out.println("Your team has scored a total of " + NFLTeams.get(NFLRunner.team).getPointsScored() + " points this season so far.");
-		System.out.println("Your team has allowed a total of " + NFLTeams.get(NFLRunner.team).getPointsAllowed() + " to be scored on them.");
+		
+		System.out.println("Enter 1 if your team wins and enter 2 if they lose this week.");
+		NFLRunner.record = NFLRunner.userInput.nextInt();
+		if(NFLRunner.record == 1) {
+			Teams.NFLTeams.get(NFLRunner.team - 1).setWins(Teams.NFLTeams.get(NFLRunner.team - 1).getWins()+ 1);
+		}
+		else {
+			Teams.NFLTeams.get(NFLRunner.team - 1).setLosses(Teams.NFLTeams.get(NFLRunner.team - 1).getLosses()+ 1);
+		}
+		System.out.println("How many points does your team score this week?");
+		int pointsScored = NFLRunner.userInput.nextInt();
+		System.out.println("How many points are scored against you team this week?");
+		int pointsAgainst = NFLRunner.userInput.nextInt();
+		Teams.NFLTeams.get(NFLRunner.team - 1).setPointsScored(Teams.NFLTeams.get(NFLRunner.team - 1).getPointsScored()+ pointsScored);
+		Teams.NFLTeams.get(NFLRunner.team - 1).setPointsAllowed(Teams.NFLTeams.get(NFLRunner.team - 1).getPointsAllowed()+ pointsAgainst);
+		System.out.println(Teams.NFLTeams.get(NFLRunner.team - 1).getTeamName() + ":");
+		System.out.println("Your team has a record of " + NFLTeams.get(NFLRunner.team -1).getWins() + "-" + NFLTeams.get(NFLRunner.team - 1).getLosses());
+		System.out.println("Your team has scored a total of " + NFLTeams.get(NFLRunner.team - 1).getPointsScored() + " points this season so far.");
+		System.out.println("Your team has allowed a total of " + NFLTeams.get(NFLRunner.team - 1).getPointsAllowed() + " to be scored on them.");
 	
 	}
 }
